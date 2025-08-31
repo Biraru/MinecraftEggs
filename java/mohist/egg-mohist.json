@@ -1,80 +1,70 @@
 {
-  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
-  "meta": {
-    "version": "PTDL_v2",
-    "update_url": "https://raw.githubusercontent.com/Biraru/MinecraftEggs/refs/heads/main/java/mohist/egg-mohist.json"
-  },
-  "exported_at": "2025-08-31T12:53:00+02:00",
-  "name": "Mohist",
-  "author": "biraru@biraru.org",
-  "description": "Spigot fork with performance optimizations.",
-  "features": [
-    "eula",
-    "java_version",
-    "pid_limit"
-  ],
-  "docker_images": {
-    "Java 17": "ghcr.io/pterodactyl/yolks:java_17",
-    "Java 16": "ghcr.io/pterodactyl/yolks:java_16",
-    "Java 11": "ghcr.io/pterodactyl/yolks:java_11",
-    "Java 8": "ghcr.io/pterodactyl/yolks:java_8",
-    "Java 18": "ghcr.io/pterodactyl/yolks:java_18"
-  },
-  "file_denylist": [],
-  "startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
-  "config": {
-    "files": {
-      "server.properties": {
-        "parser": "properties",
-        "find": {
-          "server-ip": "0.0.0.0",
-          "server-port": "{{server.build.default.port}}"
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": "https:\/\/raw.githubusercontent.com\/Biraru\/MinecraftEggs\/main\/java\/mohist\/egg-mohist.json"
+    },
+    "exported_at": "2025-08-31T13:15:01+05:00",
+    "name": "Mohist",
+    "author": "biraru@biraru.org",
+    "description": "Mohist is an exceptional server software for Minecraft Forge that implements Bukkit, Spigot APIs. By leveraging this powerful combination, you can create a high-performing Minecraft server with the ability to integrate mods and plugins, ensuring stability and optimal performance.",
+    "features": [
+        "eula",
+        "java_version",
+        "pid_limit"
+    ],
+    "docker_images": {
+        "Java 17": "ghcr.io\/pterodactyl\/yolks:java_17",
+        "Java 16": "ghcr.io\/pterodactyl\/yolks:java_16",
+        "Java 11": "ghcr.io\/pterodactyl\/yolks:java_11",
+        "Java 8": "ghcr.io\/pterodactyl\/yolks:java_8",
+        "Java 18": "ghcr.io\/pterodactyl\/yolks:java_18"
+    },
+    "file_denylist": [],
+    "startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
+    "config": {
+        "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Mohist Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napt update\r\napt -y install curl\r\n\r\n#Go into main direction\r\nif [ ! -d \/mnt\/server ]; then\r\n    mkdir -p \/mnt\/server\r\nfi\r\n\r\ncd \/mnt\/server\r\n\r\nif [ ! -z ${BUILD_VERSION} ]; then\r\n    DOWNLOAD_LINK=https:\/\/api.mohistmc.com\/project\/mohist\/${MC_VERSION}\/builds\/${BUILD_VERSION}\/download\r\nelse\r\n    DOWNLOAD_LINK=https:\/\/api.mohistmc.com\/project\/mohist\/${MC_VERSION}\/builds\/latest\/download\r\nfi\r\n\r\n#Downloading jars\r\necho -e \"Download link is ${DOWNLOAD_LINK}\"\r\necho -e \"Downloading build version ${BUILD_VERSION}\"\r\n\r\ncurl -sSL -o ${SERVER_JARFILE} ${DOWNLOAD_LINK}\r\n\r\n#Checking if downloaded jars exist\r\nif [ ! -f .\/${SERVER_JARFILE} ]; then\r\n    echo \"!!! Error downloading build version ${BUILD_VERSION} !!!\"\r\n    exit\r\nfi\r\n\r\n## install end\r\necho \"-----------------------------------------\"\r\necho \"Installation completed...\"\r\necho \"-----------------------------------------\"",
+            "container": "ghcr.io\/parkervcp\/installers:debian",
+            "entrypoint": "bash"
         }
-      }
     },
-    "startup": {
-      "done": ")! For help, type "
-    },
-    "logs": {},
-    "stop": "stop"
-  },
-  "scripts": {
-    "installation": {
-      "script": "#!/bin/bash\n# Mohist Installation Script\n#\n# Server Files: /mnt/server\napt update\napt -y install curl\n\n# Go into main directory\nif [ ! -d /mnt/server ]; then\n    mkdir -p /mnt/server\nfi\n\ncd /mnt/server\n\nif [ ! -z ${BUILD_VERSION} ]; then\n    DOWNLOAD_LINK=https://api.mohistmc.com/project/mohist/${MC_VERSION}/builds/${BUILD_VERSION}/download\nelse\n    DOWNLOAD_LINK=https://api.mohistmc.com/project/mohist/${MC_VERSION}/builds/latest/download\nfi\n\n# Downloading jars\necho -e \"Download link is ${DOWNLOAD_LINK}\"\necho -e \"Downloading build version ${BUILD_VERSION}\"\n\ncurl -sSL -o ${SERVER_JARFILE} ${DOWNLOAD_LINK}\n\n# Checking if downloaded jar exists\nif [ ! -f ./${SERVER_JARFILE} ]; then\n    echo \"!!! Error downloading build version ${BUILD_VERSION} !!!\"\n    exit\nfi\n\n## install end\necho \"-----------------------------------------\"\necho \"Installation completed...\"\necho \"-----------------------------------------\"",
-      "container": "ghcr.io/parkervcp/installers:debian",
-      "entrypoint": "bash"
-    }
-  },
-  "variables": [
-    {
-      "name": "Server Jar File",
-      "description": "The name of the jarfile to run the server with.",
-      "env_variable": "SERVER_JARFILE",
-      "default_value": "server.jar",
-      "user_viewable": true,
-      "user_editable": false,
-      "rules": "required|string|max:20",
-      "field_type": "text"
-    },
-    {
-      "name": "Minecraft Version",
-      "description": "The version of Minecraft to download.",
-      "env_variable": "MC_VERSION",
-      "default_value": "1.19.4",
-      "user_viewable": true,
-      "user_editable": true,
-      "rules": "required|string|max:20",
-      "field_type": "text"
-    },
-    {
-      "name": "Build Number",
-      "description": "Optional: \nThe build number for the Mohist release. Overrides Build Type.",
-      "env_variable": "BUILD_VERSION",
-      "default_value": "",
-      "user_viewable": true,
-      "user_editable": true,
-      "rules": "nullable|string|max:20",
-      "field_type": "text"
-    }
-  ]
+    "variables": [
+        {
+            "name": "Server Jar File",
+            "description": "The name of the jarfile to run the server with.",
+            "env_variable": "SERVER_JARFILE",
+            "default_value": "server.jar",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Minecraft Version",
+            "description": "The version of Minecraft to download.",
+            "env_variable": "MC_VERSION",
+            "default_value": "1.19.4",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Build Number",
+            "description": "Optional: \r\nThe build number for the Mohist release. Overrides Build Type.",
+            "env_variable": "BUILD_VERSION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|max:20",
+            "field_type": "text"
+        }
+    ]
 }
