@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": "https:\/\/raw.githubusercontent.com\/Biraru\/MinecraftEggs\/main\/java\/mohist\/egg-mohist.json"
     },
-    "exported_at": "2025-08-31T13:15:01+05:00",
+    "exported_at": "2025-09-03T16:48:18+05:00",
     "name": "Mohist",
     "author": "biraru@biraru.org",
     "description": "Mohist is an exceptional server software for Minecraft Forge that implements Bukkit, Spigot APIs. By leveraging this powerful combination, you can create a high-performing Minecraft server with the ability to integrate mods and plugins, ensuring stability and optimal performance.",
@@ -21,7 +21,7 @@
         "Java 18": "ghcr.io\/pterodactyl\/yolks:java_18"
     },
     "file_denylist": [],
-    "startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
+    "startup": "java -Xms512M -Xmx{{SERVER_MEMORY}}M -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https:\/\/mcflags.emc.gs -Daikars.new.flags=true -jar {{SERVER_JARFILE}}",
     "config": {
         "files": "{\r\n    \"server.properties\": {\r\n        \"parser\": \"properties\",\r\n        \"find\": {\r\n            \"server-ip\": \"0.0.0.0\",\r\n            \"server-port\": \"{{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \")! For help, type \"\r\n}",
@@ -42,7 +42,7 @@
             "env_variable": "SERVER_JARFILE",
             "default_value": "server.jar",
             "user_viewable": true,
-            "user_editable": true,
+            "user_editable": false,
             "rules": "required|string|max:20",
             "field_type": "text"
         },
