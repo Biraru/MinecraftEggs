@@ -1,18 +1,17 @@
 # Minecraft
 
-It’s a game about placing blocks and going on adventures
+Minecraft is all about placing blocks, crafting, exploring, and going on adventures.
+Its worlds are infinitely generated, featuring icy mountains, swampy bayous, vast pastures, and countless hidden secrets and challenges.
 
-It’s set in infinitely-generated worlds of wide open terrain - icy mountains, swampy bayous, vast pastures and much more - filled with secrets, wonders and peril!
-
-## [Bedrock](bedrock) Servers for Bedrock Minecraft (Windows 10, mobile, console)
+## [Bedrock](bedrock) Servers
 
 * [Bedrock](bedrock/bedrock)
-* [gomint](bedrock/gomint)
-* [LiteLoaderBDS](bedrock/LiteLoader-bedrock)
+* [GoMint](bedrock/gomint)
+* [LiteLoader BDS](bedrock/LiteLoader-bedrock)
 * [Nukkit](bedrock/nukkit)
 * [PocketMine MP](bedrock/pocketmine_mp)
 
-## [Java](java) Servers for Java Minecraft
+## [Java](java) Servers
 
 * [Cuberite](java/cuberite)
 * [CurseForge](java/curseforge)
@@ -31,21 +30,26 @@ It’s set in infinitely-generated worlds of wide open terrain - icy mountains, 
 * [Paper](java/paper)
 * [Folia](java/folia)
 * [Purpur](java/purpur)
-* [Quilt](java/quilt/)
+* [Quilt](java/quilt)
 * [Spigot](java/spigot)
 * [SpongeForge](java/spongeforge)
 * [SpongeVanilla](java/spongevanilla)
 * [Technic](java/technic)
 * [VanillaCord](java/vanillacord)
 
-## [Proxies](proxy) Minecraft Server Proxies
+## [Proxies](proxy)
 
-* [Bedrock](proxy/bedrock)
-  * [Waterdog PE](proxy/bedrock/waterdog_pe)
-* [Cross Platform](proxy/cross_platform)
-  * [GeyserMC](proxy/cross_platform/geyser)
-  * [Waterdog](proxy/cross_platform/waterdog)
-* [Java](proxy/java)
-  * [Travertine](proxy/java/travertine)
-  * [Velocity](proxy/java/velocity)
-  * [Waterfall](proxy/java/waterfall)
+### Bedrock Proxies
+
+* [Waterdog PE](proxy/bedrock/waterdog_pe)
+
+### Cross-Platform Proxies
+
+* [GeyserMC](proxy/cross_platform/geyser)
+* [Waterdog](proxy/cross_platform/waterdog)
+
+### Java Proxies
+
+* [Travertine](proxy/java/travertine)
+* [Velocity](proxy/java/velocity)
+* [Waterfall](proxy/java/waterfall)
