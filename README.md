@@ -19,7 +19,6 @@ It’s set in infinitely-generated worlds of wide open terrain - icy mountains, 
 * [Fabric](java/fabric)
 * [Feather](java/feather)
 * [Forge](java/forge)
-  * [Forge](java/forge/forge)
 * [Feed The Beast](java/ftb)
 * [Glowstone](java/glowstone)
 * [Limbo](java/limbo)
